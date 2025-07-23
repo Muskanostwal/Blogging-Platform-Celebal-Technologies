@@ -1,0 +1,81 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <h3>Edit your Blog</h3>
+    <div class="row">
+        <div class="col-8 offset-2">
+    <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" novalidate class="needs-validation">
+        <div>
+            <label for="title" class="form-label">Title</label>
+            <input name="listing[title]" 
+             value="<%=listing.title%>"
+             type="text" 
+             class="form-control" 
+             required 
+            />
+            <div class="invalid-feedback">Title name should be valid</div>
+            <br>
+        </div>
+
+        <div>
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" class="form-control" required
+            ><%=listing.description%></textarea>
+            <div class="invalid-feedback">Description should be valid</div>
+            <br><br>
+        </div>
+        
+        <div>
+            <label for="image" class="form-label">Image</label> 
+            <input 
+            name="listing[image]" 
+            class="form-control" 
+            value="<%=listing.image%> "
+             type="text" 
+             required
+            />
+            <div class="invalid-feedback">Image should be valid</div>
+            <br><br>
+        </div>
+        
+        <div>
+            <label for="author" class="form-label">Author</label> 
+            <input 
+            name="listing[author]" 
+             value="<%=listing.author%> " 
+             class="form-control"
+             type="text"
+             required
+            />
+            <div class="invalid-feedback">Author should be valid</div>
+            <br><br>
+        </div>
+         <div>
+    <label for="category" class="form-label">Category</label>
+    <select name="listing[category]" class="form-select" required>
+    <option value="">-- Select Category --</option>
+    <% categories.forEach(category => { %>
+        <option value="<%= category %>" <%= listing.category === category ? "selected" : "" %>><%= category %></option>
+    <% }) %>
+</select>
+    <div class="invalid-feedback">Please select a category</div>
+    <br>
+</div>
+
+        <div>
+            <label for="language" class="form-label">Language</label> 
+            <input 
+             name="listing[language]" 
+             value="<%=listing.language%> " 
+             class="form-control"
+             type="text"
+             required
+            />
+            <div class="invalid-feedback">Language should be valid</div>
+            <br><br>
+        </div>
+        
+        <button class="btn btn-dark edit-btn">Edit</button>
+    </form>
+</div>
+</div>
+</body>

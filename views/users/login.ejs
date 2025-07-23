@@ -1,0 +1,42 @@
+<% layout("/layouts/boilerplate") %>
+<div class="container vh-80 d-flex justify-content-center align-items-center">
+<div class="row justify-content-center mt-7 mb-7">
+    <div class="col-md-9 col-lg-9">
+        <div class="text-center mb-3">
+            <h1 class="display-5 fw-bold" style="color:#c33607;">Hi, Welcome back to Zomyto!</h1>
+            <h4 class="fw-semibold" style="color:#5c4033;">Please Login to Continue</h4>
+        </div>
+        <div class="login-card p-5 shadow rounded-4">
+            <form action="/login" method="POST" class="needs-validation" novalidate>
+                <div class="mb-4">
+                    <label for="username" class="form-label fw-semibold text-dark">Username</label>
+                    <input 
+                        name="username"
+                        id="username"
+                        placeholder="Enter username"
+                        class="form-control form-control-lg login-input"
+                        type="text"
+                        required 
+                    />
+                </div>
+
+                <div class="mb-4">
+                    <label for="password" class="form-label fw-semibold text-dark">Password</label>
+                    <input 
+                        name="password"
+                        id="password"
+                        placeholder="Enter a strong password"
+                        class="form-control form-control-lg login-input"
+                        type="password"
+                        required 
+                    />
+                </div>
+
+                <div class="text-center mt-4">
+                    <button class="edit-btn btn-success px-4 py-2">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

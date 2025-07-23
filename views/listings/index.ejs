@@ -1,0 +1,82 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+    #filters{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .filter{
+        text-align: center;
+        text-decoration: none;
+        margin-right: 2rem;
+        margin-top: 2rem;
+        opacity: 0.7;
+        color: black;
+    }
+    .filter:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+</style>
+<div id="filters">
+    <a href="/listings?category=Technology" class="filter">
+        <div class="icon-img"><i class="fa-solid fa-explosion"></i></div>
+        <p>Technology</p>
+    </a>
+    <a href="/listings?category=Education" class="filter">
+        <div class="icon-img"><i class="fa-solid fa-brain"></i></div>
+        <p>Education</p>
+    </a>
+    <a href="/listings?category=PersonalGrowth" class="filter">
+        <div class="icon-img"><i class="fa-regular fa-heart"></i></div>
+        <p>Personal Growth</p>
+    </a>
+    <a href="/listings?category=Lifestyle" class="filter">
+        <div class="icon-img"><i class="fa-solid fa-hands-holding-child"></i></div>
+        <p>Lifestyle</p>
+    </a>
+    <a href="/listings?category=Finance" class="filter">
+        <div class="icon-img"><i class="fa-solid fa-hand-fist"></i></div>
+        <p>Finance</p>
+    </a>
+    <a href="/listings?category=Entertainment" class="filter">
+        <div class="icon-img"><i class="fa-solid fa-book-open"></i></div>
+        <p>Entertainment</p>
+    </a>
+    <a href="/listings?category=News" class="filter">
+        <div class="icon-img"><i class="fa-solid fa-dollar-sign"></i></div>
+        <p>News</p>
+    </a>
+    <a href="/listings?category=Others" class="filter">
+        <div class="icon-img"><i class="fa-solid fa-book-atlas"></i></div>
+        <p>Others</p>
+    </a>
+</div>
+
+        
+        
+      <div class="row row-cols-1 g-2 mt-4">
+    <% for(let listing of allListings){ %>
+        <div class="col">
+            <a href="/listings/<%=listing._id%>" class="listing-link">
+                <div class="card listing-card d-flex flex-row align-items-start" style="height: auto; background-color: #f5e5c9;">
+                    
+                    <!-- Left: Image -->
+                    <img class="img-fluid" src="<%= listing.image %>" alt="Book image" style="width: 15rem; height: 15rem; object-fit: cover; border-radius: 5px;" />
+
+                    <!-- Right: Text Content -->
+                    <div class="card-body d-flex flex-column justify-content-start" style="padding: 1rem;">
+                        <h2 class="card-title" style="font-size: 1.7rem !important; font-weight: 700;"><%= listing.title %></h2>
+                        <p class="card-text">
+                            <%= listing.description.split(" ").slice(0, 50).join(" ") %>...
+                        </p>
+                    </div>
+
+                </div>
+            </a>
+        </div>
+    <% } %>
+</div>
+
+
+    
+</body>
